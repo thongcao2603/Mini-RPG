@@ -1,0 +1,32 @@
+
+/Library
+/ProjectSettings
+/Temp
+/Packages
+/UserSettings
+/Logs
+Mini RPG.sln
+/Assets/Tiny RPG Forest/Artwork
+/Assets/TextMesh Pro
+/Assets/CaptainCatSparrow
+/Assets/Basic_RPG_Icons
+/Assets/04 Animations
+/Assets/Tiny RPG Forest
+Assets/Tiny RPG Forest.meta
+Assets/TextMesh Pro.meta
+Assets/CaptainCatSparrow.meta
+Assets/Basic_RPG_Icons.meta
+Assets/04 Animations.meta
+Assets/03 Scripts/UIManager.cs.meta
+/Assets/01 Sprites
+/Assets/00 Scenes
+/Assets/02 Prefabs
+Assets/02 Prefabs.meta
+Assets/01 Sprites.meta
+Assets/00 Scenes.meta
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+Assets/03 Scripts.meta
