@@ -23,13 +23,16 @@ public class Spell : MonoBehaviour
     {
         if (MyTarget != null)
         {
+            //tính hướng từ transform đến target
             Vector2 dir = MyTarget.position - transform.position;
             rigi.velocity = dir.normalized * speed;
+            //tính góc xoay của spell
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
+    // nếu chạm enemy thì hủy object-> test, em chưa biết làm gì tiếp
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")

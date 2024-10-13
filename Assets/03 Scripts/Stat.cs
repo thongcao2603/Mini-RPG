@@ -21,6 +21,7 @@ public class Stat : MonoBehaviour
         }
         set
         {
+            // kiểm tra không cho vượt quá max và nhỏ hơn 0
             if (value > MyMaxValue)
             {
                 currentValue = MyMaxValue;
@@ -33,6 +34,7 @@ public class Stat : MonoBehaviour
             {
                 currentValue = value;
             }
+            // tính giá trị để fill ô stat
             currentFill = currentValue / MyMaxValue;
             textStat.text = currentValue + "/" + MyMaxValue;
         }
@@ -48,13 +50,13 @@ public class Stat : MonoBehaviour
     void Update()
     {
         if (currentFill != content.fillAmount)
-        {
+        {   // tạo hiệu ứng giảm máu lần lần, chứ không nhảy từng nấc
             content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
         }
     }
 
     public void Initialize(float _currentValue, float _maxValue)
-    {
+    {   // init giá trị max và giá trị current (init giá trị current trước gặp bug)
         MyMaxValue = _maxValue;
         MyCurrentValue = _currentValue;
 

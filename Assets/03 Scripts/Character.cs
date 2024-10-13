@@ -38,6 +38,7 @@ public abstract class Character : MonoBehaviour
         return direction.x != 0 || direction.y != 0;
     }
 
+    // chuyển layer animation, hiện đang có 3 layer IdleLayer, WalkLayer, AttackLayer
     private void HandleLayers()
     {
         if (IsMoving())
@@ -45,7 +46,7 @@ public abstract class Character : MonoBehaviour
             ActiveLayer("WalkLayer");
             animator.SetFloat("x", direction.x);
             animator.SetFloat("y", direction.y);
-
+            //fix bug animation đã dừng nhưng routine attack vẫn còn chạy.
             StopAttack();
         }
         else if (isAttacking)
@@ -66,6 +67,7 @@ public abstract class Character : MonoBehaviour
         rigi.velocity = direction.normalized * speed;
     }
 
+    //set tất cả weight về 0, active theo layer name
     public void ActiveLayer(string layerName)
     {
         for (int i = 0; i < animator.layerCount; i++)

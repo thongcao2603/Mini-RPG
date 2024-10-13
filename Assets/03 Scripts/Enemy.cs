@@ -1,14 +1,16 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class Enemy : Character
-{
-    [SerializeField] private int health;
+// public class Enemy : Character
+// {
+//     [SerializeField] private int health;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag=)
-    }
+//     private void OnTriggerEnter2D(Collider2D other)
+//     {
 
-    private void TakeDamage(){
-        this.health-=10;
-    }
-}
+//     }
+
+//     private void TakeDamage()
+//     {
+//         this.health -= 10;
+//     }
+// }

@@ -32,7 +32,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    // invoke các function trong listener của button
+    // kéo các button vào mảng button trên
     private void ActionButtonOnClick(int btnIndex)
     {
         actionButtons[btnIndex].onClick.Invoke();

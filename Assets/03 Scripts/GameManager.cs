@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void ClickTarget()
     {
+        // raycast để lấy target cho Player
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             //512 hardcode cho layer Enemy

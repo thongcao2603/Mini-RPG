@@ -75,10 +75,16 @@ public class Player : Character
 
         isAttacking = true;
         animator.SetBool("attack", isAttacking);
+
+        // hardcode time cho routine attack 1f
         yield return new WaitForSeconds(1f);
+
         if (MyTarget != null && InSightLine())
         {
+            //có 3 projectilePrefab ứng với 3 button, exitPoint là các gameObject nằm trong player ứng với 4 hướng up, down,left,right
+            //khi thay đổi hướng exitPoint sẽ thay đổi theo index
             Spell s = Instantiate(projectilePrefab[spellIndex], exitPoints[exitIndex].position, Quaternion.identity).GetComponent<Spell>();
+            //gán target của spell thành target của player để nó bay về phía target
             s.MyTarget = MyTarget;
         }
         // Debug.Log("done cast");
@@ -86,8 +92,10 @@ public class Player : Character
 
     }
 
+    //cast spell theo tham số truyển vào từ listener của button ngoài Canvas
     public void CastSpell(int spellIndex)
     {
+        //kiểm tra nếu có target, không tấn công, không di chuyển, raycast không bị block thì mới cho tấn công
         if (MyTarget != null && !isAttacking && !IsMoving() && InSightLine())
         {
             attackRoutine = StartCoroutine(Attack(spellIndex));
@@ -102,7 +110,7 @@ public class Player : Character
     private bool InSightLine()
     {
         Vector3 dir = MyTarget.position - transform.position;
-
+        //256 là hardcode int layer của các mảng block chặn tấn công từ phía sau(hàm phía dưới)
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, Vector2.Distance(MyTarget.position, transform.position), 256);
 
         if (hit.collider != null)
@@ -113,7 +121,8 @@ public class Player : Character
     }
 
     /// <summary>
-    /// add block behind hero -> cannot attack 
+    /// khi xoay về phía trước sẽ bật 2 gameobject có collider để che phía sau lưng,
+    /// nếu raycast trúng collider block này sẽ chặn raycast
     /// </summary>
     private void Block()
     {
